@@ -1,0 +1,30 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore environment-specific files (for conda or virtual environments)
+venv/
+env/
+*.env
+*.virtualenv
+*.conda
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore IDE-specific files (e.g., for VS Code, PyCharm, etc.)
+.vscode/
+.idea/
+
+# Ignore log files and temporary files
+*.log
+*.tmp
+
+# Ignore build and distribution files
+build/
+dist/
+*.egg-info
+
+# Ignore system files
+.DS_Store
+Thumbs.db

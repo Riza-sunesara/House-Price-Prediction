@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="app.css">
+    <script src="app.js"></script>
+    <title>Bengaluru House Price Predictor</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="logo">
+                <p>HousePricePredictor</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#form">Predict</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#working">How It Works</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Discover accurate price predictions instantly</h1>
+                <p>Get precise house price estimates with ease</p>
+                <div class="hero-buttons">
+                    <button id="try-demo"><a href="#form">Predict Now!</a></button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/image.png" alt="House">
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="padded-width" id="about">
+            <section class="stats">
+                <div class="stat">
+                    <p>Current active users</p>
+                    <div class="stat-details">
+                        <h2>1M+</h2>
+                        <img class="people-icon" src="images/group.png" alt="Users">
+                    </div>
+                </div>
+                <div class="stat">
+                    <p>Data points analyzed</p>
+                    <div class="stat-details">
+                        <h2>5TB+</h2>
+                        <img src="images/table.png" alt="Data">
+                    </div>
+                </div>
+                <div class="stat">
+                    <p>Data successfully processed</p>
+                    <div class="stat-details">
+                        <h2>6M+</h2>
+                        <img src="images/check.png" alt="Processed">
+                    </div>
+                </div>
+                <div class="stat">
+                    <p>Get started for free</p>
+                    <div class="stat-details">
+                        <h2>Experience</h2>
+                        <img src="images/arrow.png" alt="Free">
+                    </div>
+                </div>
+            </section>
+        </section>        
+
+        <!-- Circular Steps Section -->
+        <section class="steps-container" id="working">
+            <div class="steps">
+                <div class="step-wrapper">
+                    <button class="step">1</button>
+                    <p class="step-text">Enter</p>
+                </div>
+                <div class="step-wrapper">
+                    <button class="step">2</button>
+                    <p class="step-text">Location</p>
+                </div>
+                <div class="step-wrapper">
+                    <button class="step">3</button>
+                    <p class="step-text">Rooms</p>
+                </div>
+                <div class="step-wrapper">
+                    <button class="step">4</button>
+                    <p class="step-text">Area</p>
+                </div>
+                <div class="step-wrapper">
+                    <button class="step">5</button>
+                    <p class="step-text">Bathrooms</p>
+                </div>
+                <div class="step-wrapper">
+                    <button class="step">6</button>
+                    <p class="step-text">Predict</p>
+                </div>
+            </div>
+        </section>      
+
+        <!-- Form Section -->
+        <section class="padded-width" id="form">
+            <section class="form-body">
+                <section class="form-container">
+                    <h2>House Details Input Form</h2>
+                    <h3>House Specifications</h3>
+                    <p class="form-description">Fill in House Information</p>
+                    <form id="house-details-form">
+                        <!-- Left Column -->
+                        <div class="form-columnL">
+                            <div class="form-group">
+                                <label for="location">Location Address</label>
+                                <select id="location">
+                                    <option value="" disabled="disabled" selected="selected">Choose a Location</option>
+                                    <option value="jp_nagar">JP Nagar</option>
+                                    <option value="palanpur">Palanpur</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="rooms">Number of Rooms</label>
+                                <input type="number" name="uiBHK" id="rooms" min="1" max="5" placeholder="Enter Number of Rooms">
+                            </div>
+                            <div class="form-group">
+                                <div class="form-actions">
+                                    <button type="submit" onclick="onClickedPredictPrice()" class="predict-button">Predict</button>
+                                    <button type="reset" class="reset-button">Reset</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Did you like the prediction?</label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input type="radio" name="price_prediction" value="yes"> Yes
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="price_prediction" value="no"> No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Right Column -->
+                        <div class="form-columnR">
+                            <div class="form-group">
+                                <label for="total_sqft">Total Square Feet</label>
+                                <input type="text" name="Squareft" id="uiSqft" placeholder="Area">
+                            </div>
+                            <div class="form-group">
+                                <label for="bathrooms">Number of Bathrooms</label>
+                                <input type="number" name="uiBathrooms" id="bathrooms" min="1" max="5" placeholder="Enter Number of Bathrooms">
+                            </div>
+                            <div id="uiEstimatedPrice" class="result">
+                                <label for="result">Result</label>
+                                <input type="text" id="uiPredictedPrice" readonly placeholder="Your result">
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </section>
+        </section>        
+    </main>
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>House Price Prediction</h3>
+            </div>
+            <div class="footer-column">
+                <h3>Location</h3>
+                <ul>
+                    <li><a href="#">Rooms</a></li>
+                    <li><a href="#">Bathrooms</a></li>
+                    <li><a href="#">Total Area</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Price Prediction</h3>
+                <ul>
+                    <li><a href="#">Get insights</a></li>
+                    <li><a href="#">Privacy policy</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><a href="https://mail.google.com/mail/"><img src="images/mail.png" alt="Mail Us"></a></li>
+                    <li><a href="https://web.whatsapp.com/"><img src="images/whatsapp.png" alt="Whatsapp Us"></a></li>
+                    <li><a href="https://www.facebook.com/"><img src="images/facebook.png" alt="Message Us"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-content">
+            <p>&copy; 2025 Bengaluru House Price Predictor. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
